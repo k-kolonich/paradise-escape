@@ -1,11 +1,8 @@
-<%= form_with model: @island do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
+<h1>Edit Island</h1>
+<%= simple_form_for [@island] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :location %>
+  <%= f.input :price %>
   <%= f.submit %>
 <% end %>
