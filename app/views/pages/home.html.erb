@@ -1,8 +1,2 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<ul>
-  <% @islands.each do |island| %>
-  <li><%= island.name  %></li>
-  <% end %>
-</ul>
+<%= render "shared/banner" %>
+<%= render "shared/cards" %>
