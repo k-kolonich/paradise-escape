@@ -1,4 +1,8 @@
 class IslandsController < ApplicationController
+  def show
+    @island = Island.find(params[:id])
+  end
+
   def new
     @island = Island.new
   end
@@ -11,16 +15,6 @@ class IslandsController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
-  end
-
-  private
-
-  def island_params
-    params.require(:island).permit(:name, :description, :location, :price)
-  end
-
-  def show
-    @island = Island.find(params[:id])
   end
 
   def edit
