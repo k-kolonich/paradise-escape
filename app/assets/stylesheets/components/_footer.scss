@@ -1,0 +1,32 @@
+.footer-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2D381D;
+  color: #FAF3ED;
+  width: 100%;
+  text-decoration: none;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 45px 30px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.footer-p {
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.footer a{
+  color: #FAF3ED;
+}
+
+.footer a:hover {
+  color: #dbd3cc;
+}
