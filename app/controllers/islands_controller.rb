@@ -27,6 +27,12 @@ class IslandsController < ApplicationController
     redirect_to island_path(@island)
   end
 
+  def destroy
+    @island = Island.find(params[:id])
+    @island.destroy
+    redirect_to root_path, status: :see_other
+  end
+
   private
 
   def island_params

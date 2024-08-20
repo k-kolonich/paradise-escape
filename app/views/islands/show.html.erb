@@ -1,5 +1,15 @@
 <h2><%= @island.name %></h2>
-<p><%= @island.user_id %></p>
 <p><%= @island.description %></p>
 <p><%= @island.location %></p>
 <p><%= @island.price %></p>
+
+
+
+<%= link_to "Edit",
+  edit_island_path(@island)
+%>
+
+<%= link_to "Delete",
+  island_path(@island),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
