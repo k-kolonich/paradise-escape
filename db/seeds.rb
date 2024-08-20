@@ -7,13 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Island.destroy_all
 
 sunny_retreat = {
   user_id: 1,
   name: "Sunny Retreat",
   description: "A beautiful sunny island with white sandy beaches and crystal-clear waters.",
   location: "Bahamas",
-  price: 5000
+  price: 5000,
 }
 
 tropical_paradise = {
@@ -21,7 +22,7 @@ tropical_paradise = {
   name: "Tropical Paradise",
   description: "Experience the ultimate tropical paradise with lush greenery and serene surroundings.",
   location: "Maldives",
-  price: 8000
+  price: 8000,
 }
 
 ocean_breeze = {
@@ -29,7 +30,7 @@ ocean_breeze = {
   name: "Ocean Breeze",
   description: "A peaceful escape surrounded by the ocean, perfect for relaxation.",
   location: "Fiji",
-  price: 4500
+  price: 4500,
 }
 
 island_escape = {
@@ -37,7 +38,7 @@ island_escape = {
   name: "Island Escape",
   description: "A secluded island with breathtaking views and luxury amenities.",
   location: "Seychelles",
-  price: 9000
+  price: 9000,
 }
 
 coconut_cove = {
@@ -45,10 +46,18 @@ coconut_cove = {
   name: "Coconut Cove",
   description: "A cozy island retreat with palm trees and a private beach.",
   location: "Hawaii",
-  price: 6500
+  price: 6500,
+}
+
+sunset_sands = {
+  user_id: 1,
+  name: "Sunset Sands",
+  description: "A serene island escape with golden sands and breathtaking sunsets.",
+  location: "Maldives",
+  price: 8200,
 }
 
 
-[sunny_retreat, tropical_paradise, ocean_breeze, island_escape, coconut_cove].each do |attributes|
+[sunny_retreat, tropical_paradise, ocean_breeze, island_escape, coconut_cove, sunset_sands].each do |attributes|
   island = Island.create!(attributes)
 end

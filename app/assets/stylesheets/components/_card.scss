@@ -1,0 +1,26 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  background-color: #FAF3ED;
+  padding: 40px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
