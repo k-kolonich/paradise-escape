@@ -1,0 +1,8 @@
+<h1>Book Your Island Vacation</h1>
+
+<%= simple_form_for [@island, @bookings] do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.input :number_of_guests %>
+  <%= f.submit "Send Booking Request", class: "btn btn-primary" %>
+<% end %>
