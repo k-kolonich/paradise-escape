@@ -48,11 +48,6 @@ coconut_cove = {
   price: 6500
 }
 
-#   [ dishoom, pizza_east ].each do |attributes|
-#     restaurant = Restaurant.create!(attributes)
-#     puts "Created #{restaurant.name}"
-#   end
-# )
 
 [sunny_retreat, tropical_paradise, ocean_breeze, island_escape, coconut_cove].each do |attributes|
   island = Island.create!(attributes)
