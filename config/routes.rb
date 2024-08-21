@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   resources :islands do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :edit]
   end
 
   resources :bookings, only: [:update]
