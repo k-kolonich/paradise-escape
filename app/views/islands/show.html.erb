@@ -1,15 +1,39 @@
-<h2><%= @island.name %></h2>
-<p><%= @island.description %></p>
-<p><%= @island.location %></p>
-<p><%= @island.price %></p>
+<div class="show-container">
+    <div class="show-text">
+      <div>
+        <p id="showpage-slogan">DISCOVER YOUR PARADISE</p>
+        <h1>Exclusive island rentals awaits</h1>
+      </div>
+      <div>
+        <h2><%= @island.name %></h2>
+        <p><%= @island.description %></p>
+        <p><%= @island.location %></p>
+        <p><%= @island.price %> $</p>
+      </div>
+      <div>
+        <%= link_to "Edit",
+          edit_island_path(@island)
+        %>
 
+        <%= link_to "Delete",
+          island_path(@island),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      </div>
+    </div>
+    <div class="show-image">
+      <img src="https://images.pexels.com/photos/11967513/pexels-photo-11967513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+    </div>
+</div>
 
+<div class="form-container">
+  <h1>Book Your Island Vacation</h1>
 
-<%= link_to "Edit",
-  edit_island_path(@island)
-%>
+  <%= simple_form_for [@island, @bookings] do |f| %>
+    <%= f.input :start_date, as: :date %>
+    <%= f.input :end_date, as: :date %>
+    <%= f.input :number_of_guests %>
+    <%= f.submit "Send Booking Request", class: "button-green"%>
+  <% end %>
 
-<%= link_to "Delete",
-  island_path(@island),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+</div>
