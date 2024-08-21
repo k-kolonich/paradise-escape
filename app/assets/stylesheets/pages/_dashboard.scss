@@ -1,0 +1,43 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 3fr 8fr;
+  gap: 20px;
+  background-color: #FAF3ED;
+  padding: 40px;
+}
+
+.dashboard-container img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.dashboard-user-info {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.dashboard-card {
+  width: 100%;
+  height: 500px;
+}
+
+.dashboard-card h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #FAF3ED;
+  background-color: #2D381D;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  padding: 3px;
+}

@@ -1,26 +1,48 @@
-<h1>User Dashboard</h1>
+<div class="dashboard-container">
 
-<h2>My Islands</h2>
-<ul>
-  <% @islands.each do |island|%>
-    <li> <%=  island.name %> | <%= island.location %> </li>
-  <% end %>
-</ul>
+    <div class="dashboard-user-info">
+      <img src="https://kitt.lewagon.com/placeholder/users/arthur-littm" alt="User Avatar" class="user-avatar">
+      <div>
+        <h2>Name</h2>
+        <h2>Surname</h2>
+        <p><strong>Email:</strong> name.surname@gmail.com</p>
+        <p><strong>Phone:</strong>+123456789</p>
+      </div>
+      <button class="button-green">Logout</button>
+    </div>
 
-<h2>My Bookings</h2>
-  <% unless @bookings.empty? %>
-      <% @user_bookings.each do |booking|%>
-        <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
-      <% end %>
-    <% else %>
-      <p>No bookings yet.</p>
-  <% end %>
 
-<h2>Bookings for My Islands</h2>
-  <% unless @bookings.empty? %>
-      <% @bookings.each do |booking|%>
-        <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
-      <% end %>
-    <% else %>
-      <p>No bookings yet.</p>
-  <% end %>
+  <div class="dashboard-cards">
+
+    <div class="dashboard-card">
+      <h2>My Islands</h2>
+      <ul>
+        <% @islands.each do |island|%>
+          <li> <%=  island.name %> | <%= island.location %> </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>My Bookings</h2>
+        <% unless @bookings.empty? %>
+            <% @user_bookings.each do |booking|%>
+              <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
+            <% end %>
+          <% else %>
+            <p>No bookings yet.</p>
+        <% end %>
+    </div>
+
+    <div class="dashboard-card">
+      <h2>Bookings for My Islands</h2>
+        <% unless @bookings.empty? %>
+            <% @bookings.each do |booking|%>
+              <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
+            <% end %>
+          <% else %>
+            <p>No bookings yet.</p>
+        <% end %>
+    </div>
+  </div>
+</div>
