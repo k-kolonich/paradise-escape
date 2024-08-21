@@ -10,7 +10,7 @@
 <h2>My Bookings</h2>
   <% unless @bookings.empty? %>
       <% @user_bookings.each do |booking|%>
-        <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
+        <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> | Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
       <% end %>
     <% else %>
       <p>No bookings yet.</p>
