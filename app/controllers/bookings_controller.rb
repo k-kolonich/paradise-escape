@@ -10,9 +10,18 @@ class BookingsController < ApplicationController
     @booking.island_id = params[:island_id]
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to islands_path # this should redirect either to a booking confirmation or user dashboard
+      redirect_to dashboard_path
     else
       render 'new', status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    if params[:status] == "true"
+      @booking.update(status: true)
+    elsif params[:status] == "false"
+      @booking.update(status: false)
     end
   end
 

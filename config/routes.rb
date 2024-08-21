@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
 
   resources :islands do
-    resources :bookings, only: [:new, :create, :edit, :update]
+    resources :bookings, only: [:new, :create, :edit]
   end
+
+  resources :bookings, only: [:update]
 
   get "dashboard", to: "pages#dashboard"
 
