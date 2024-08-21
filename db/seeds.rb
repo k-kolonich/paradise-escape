@@ -7,6 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts "Destroying islands"
 Island.destroy_all
 
 sunny_retreat = {
@@ -57,7 +58,7 @@ sunset_sands = {
   price: 8200,
 }
 
-
 [sunny_retreat, tropical_paradise, ocean_breeze, island_escape, coconut_cove, sunset_sands].each do |attributes|
   island = Island.create!(attributes)
+  puts "Created island #{island.name}"
 end
