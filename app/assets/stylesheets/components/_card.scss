@@ -1,9 +1,15 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 30px;
   background-color: #FAF3ED;
   padding: 40px;
+  width: 100%;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
 }
 
 .card {
@@ -11,6 +17,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 400px;
   padding: 20px;
+  justify-content: center;
 }
 
 .card img {
