@@ -16,6 +16,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if params[:status] == "true"
+      @booking.update(status: true)
+    elsif params[:status] == "false"
+      @booking.update(status: false)
+    end
+  end
+
   private
 
   def booking_params
