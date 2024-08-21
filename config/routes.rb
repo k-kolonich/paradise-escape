@@ -9,11 +9,11 @@ Rails.application.routes.draw do
 
 
   resources :islands do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :edit]
   end
 
   resources :bookings, only: [:update]
-#  updated bookings update
+
   get "dashboard", to: "pages#dashboard"
 
   # Defines the root path route ("/")
