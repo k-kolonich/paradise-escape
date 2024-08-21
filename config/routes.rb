@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:update]
-
+#  updated bookings update
   get "dashboard", to: "pages#dashboard"
 
   # Defines the root path route ("/")
