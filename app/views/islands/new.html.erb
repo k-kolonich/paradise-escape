@@ -1,8 +1,10 @@
-<h1>Add New Island</h1>
-<%= simple_form_for [@island] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :location %>
-  <%= f.input :price %>
-  <%= f.submit "Save Island", class: "btn btn-primary" %>
-<% end %>
+<div class="form-container form-small">
+  <h1>Add New Island</h1>
+  <%= simple_form_for [@island] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.submit "Save Island", class: "button-green" %>
+  <% end %>
+</div>
