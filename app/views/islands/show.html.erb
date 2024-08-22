@@ -10,15 +10,18 @@
         <p><%= @island.location %></p>
         <p><%= @island.price %> $</p>
       </div>
+
+
       <div>
+      <% if current_user.id == @island.user_id%>
         <%= link_to "Edit",
           edit_island_path(@island)
         %>
-
         <%= link_to "Delete",
           island_path(@island),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
         %>
+      <% end %>
       </div>
     </div>
     <div class="show-image">
@@ -27,13 +30,13 @@
 </div>
 
 <div class="form-container">
-  <h1>Book Your Island Vacation</h1>
-
-  <%= simple_form_for [@island, @bookings] do |f| %>
-    <%= f.input :start_date, as: :date %>
-    <%= f.input :end_date, as: :date %>
-    <%= f.input :number_of_guests %>
-    <%= f.submit "Send Booking Request", class: "button-green"%>
+ <% unless current_user.id == @island.user_id%>
+        <h1>Book Your Island Vacation</h1>
+        <%= simple_form_for [@island, @bookings] do |f| %>
+          <%= f.input :start_date, as: :date %>
+          <%= f.input :end_date, as: :date %>
+          <%= f.input :number_of_guests %>
+          <%= f.submit "Send Booking Request", class: "button-green"%>
+        <% end %>
   <% end %>
-
 </div>
