@@ -8,7 +8,9 @@
         <p><strong>Email:</strong> name.surname@gmail.com</p>
         <p><strong>Phone:</strong>+123456789</p>
       </div>
-      <button class="button-green">Logout</button>
+      <button class="button-green">
+        <a href="<%= new_island_path %>">Upload My Island</a>
+      </button>
     </div>
 
     <%# DASHBOARD %>
@@ -69,7 +71,11 @@
 
             <% unless @user_bookings.empty? %>
                 <% @user_bookings.each do |booking|%>
-                  <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
+                  <li>Booking ID: <%=  booking.id %> |
+                  Your island getaway at: <%= booking.island.name %>, <%= booking.island.location %> (<%= booking.number_of_guests %> guests) |
+                  Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days) |
+                  Booking status: <%= booking.status == "true" ? "Confirmed" : "Pending" %> |
+                  Total Price: $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day) </li>
                 <% end %>
               <% else %>
                 <p>No bookings yet.</p>
@@ -111,7 +117,11 @@
           <% unless @bookings.empty? %>
               <% @bookings.each do |booking|%>
                 <li>
-                Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %>
+                Booking ID: <%=  booking.id %> |
+                Island ID: <%= booking.island_id %> |
+                Booking status: <%= booking.status %> |
+                Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days) |
+                Number of guests: <%= booking.number_of_guests %>
                 <%= link_to "Accept", booking_path(booking, status: true), data:{turbo_method: :patch} %>
                 <%= link_to "Decline", booking_path(booking, status: false), data:{turbo_method: :patch} %>
                 </li>
