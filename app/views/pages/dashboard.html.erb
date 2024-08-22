@@ -57,6 +57,7 @@
                   <p>Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
                   <p>Booking status: <%= booking.status == "true" ? "Confirmed" : "Pending" %></p>
                   <p>Total Price: $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day)</p>
+                  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-btn' %>
                 </div>
               <% end %>
             <% else %>
