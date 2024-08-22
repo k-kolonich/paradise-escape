@@ -1,4 +1,4 @@
-button{
+button {
   border: none;
   cursor: pointer;
   color: rgb(49, 48, 48);
@@ -6,13 +6,11 @@ button{
   transition: all .3s ease-in-out;
 }
 
-.container {
+.carousel-container {
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
 }
 
 .carousel-view {
@@ -24,7 +22,7 @@ button{
   transition: all 0.25s ease-in;
 }
 
-.carousel-view .item-list {
+.item-list {
   max-width: 950px;
   width: 70vw;
   padding: 50px 10px;
@@ -32,47 +30,53 @@ button{
   gap: 48px;
   scroll-behavior: smooth;
   transition: all 0.25s ease-in;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
   overflow: auto;
   scroll-snap-type: x mandatory;
 }
-
 
 .item-list::-webkit-scrollbar {
   display: none;
 }
 
-.prev-btn {
-  background: none;
-cursor: pointer;
-}
-
+.prev-btn,
 .next-btn {
-cursor: pointer;
+  background: none;
+  cursor: pointer;
 }
 
 .card-item {
   scroll-snap-align: center;
-  min-width: 150px;
-  height: 200px;
-  background-color: #FAF3ED;;
+  min-width: 220px;
+  max-width: 220px;
+  height: auto;
+  background-color: #FAF3ED;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
 .card-item h3 {
   font-weight: bold;
+  font-size: 1.1em;
+  color: black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.card-item p {
   font-size: 0.9em;
-  color: black
+  color: rgb(49, 48, 48);
+  margin: 5px 0;
 }
 
 .card-item img {
-    border-radius: 10px 10px 0 0;
-    height: 150px;
-    width: 150px;
+  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
 }
