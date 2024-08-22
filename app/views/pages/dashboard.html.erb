@@ -71,11 +71,14 @@
 
             <% unless @user_bookings.empty? %>
                 <% @user_bookings.each do |booking|%>
+
                   <li>Booking ID: <%=  booking.id %> |
                   Your island getaway at: <%= booking.island.name %>, <%= booking.island.location %> (<%= booking.number_of_guests %> guests) |
                   Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days) |
                   Booking status: <%= booking.status == "true" ? "Confirmed" : "Pending" %> |
                   Total Price: $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day) </li>
+                  <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-btn' %>
+
                 <% end %>
               <% else %>
                 <p>No bookings yet.</p>
