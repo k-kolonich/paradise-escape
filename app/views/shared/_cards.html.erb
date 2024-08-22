@@ -1,17 +1,15 @@
 <div class="card-container">
   <div class="cards">
     <% @islands.each do |island| %>
-      <div class="card-container">
         <a href="<%= island_path(island) %>" class="card-link">
           <div class="card">
             <img src="https://images.pexels.com/photos/1013433/pexels-photo-1013433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Exotic Island">
             <h2><%= island.name %></h2>
             <p><%= island.description %></p>
-            <p><%= island.location %></p>
+            <p><%= island.location %> <i class="fa-solid fa-location-dot"></i> </p>
             <p><%= island.price %>$</p>
           </div>
         </a>
-      </div>
     <% end %>
   </div>
 </div>
