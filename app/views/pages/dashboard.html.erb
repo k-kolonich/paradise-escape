@@ -11,43 +11,60 @@
       <button class="button-green">Logout</button>
     </div>
 
+    <%# DASHBOARD %>
+    <div class="dashboard-cards">
 
+        <div class="dashboard-card">
+          <h2>My Islands</h2>
 
-  <div class="dashboard-cards">
+      <%# CAROUSEL %>
+      <div class="carousel-container">
+          <div class="carousel-view">
 
-    <div class="dashboard-card">
-      <h2>My Islands</h2>
-      <ul>
-        <% @islands.each do |island|%>
-          <li> <%=  island.name %> | <%= island.location %> </li>
-        <% end %>
-      </ul>
-    </div>
+            <button id="prev-btn" class="prev-btn">&#9664;</button>
+              <div id="item-list" class="item-list">
+                <% @islands.each do |island| %>
+                  <div class="carousel-container">
+                    <a href="<%= island_path(island) %>" class="card-link">
+                      <div class="card-item">
+                        <img src="https://images.pexels.com/photos/6762488/pexels-photo-6762488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Exotic Island" id="carousel-img">
+                        <h3><%= island.name %></h3>
+                      </div>
+                    </a>
+                  </div>
+                <% end %>
+              </div>
+            <button id="next-btn" class="next-btn">&#9654;</button>
 
-    <div class="dashboard-card">
-      <h2>My Bookings</h2>
-        <% unless @user_bookings.empty? %>
-            <% @user_bookings.each do |booking|%>
-              <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
+          </div>
+      </div>
+        </div>
+
+        <div class="dashboard-card">
+          <h2>My Bookings</h2>
+            <% unless @user_bookings.empty? %>
+                <% @user_bookings.each do |booking|%>
+                  <li> Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %> </li>
+                <% end %>
+              <% else %>
+                <p>No bookings yet.</p>
             <% end %>
-          <% else %>
-            <p>No bookings yet.</p>
-        <% end %>
-    </div>
+        </div>
 
-    <div class="dashboard-card">
-     <h2>Bookings for My Islands</h2>
-      <% unless @bookings.empty? %>
-          <% @bookings.each do |booking|%>
-            <li>
-            Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %>
-            <%= link_to "Accept", booking_path(booking, status: true), data:{turbo_method: :patch} %>
-            <%= link_to "Decline", booking_path(booking, status: false), data:{turbo_method: :patch} %>
-            </li>
+        <div class="dashboard-card">
+        <h2>Bookings for My Islands</h2>
+          <% unless @bookings.empty? %>
+              <% @bookings.each do |booking|%>
+                <li>
+                Booking ID: <%=  booking.id %> | Island ID: <%= booking.island_id %> Booking status: <%= booking.status %> | Number of guests: <%= booking.number_of_guests %>
+                <%= link_to "Accept", booking_path(booking, status: true), data:{turbo_method: :patch} %>
+                <%= link_to "Decline", booking_path(booking, status: false), data:{turbo_method: :patch} %>
+                </li>
+              <% end %>
+            <% else %>
+              <p>No bookings yet.</p>
           <% end %>
-        <% else %>
-          <p>No bookings yet.</p>
-      <% end %>
+        </div>
     </div>
   </div>
 </div>
