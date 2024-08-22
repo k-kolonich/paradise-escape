@@ -1,7 +1,6 @@
 .dashboard-container {
   display: grid;
   grid-template-columns: 3fr 8fr;
-  gap: 20px;
   background-color: #FAF3ED;
   padding: 40px;
 }
@@ -40,4 +39,11 @@
   background-color: #2D381D;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
   padding: 3px;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
