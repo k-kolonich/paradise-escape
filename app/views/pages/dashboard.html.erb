@@ -3,9 +3,8 @@
   <div class="dashboard-user-info">
     <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/no-profile-picture-icon.png" alt="User Avatar" class="user-avatar">
     <div>
-      <h2>Welcome <%= current_user.email %>!</h2>
+      <h2>Welcome <%= current_user.name %>!</h2>
       <p><strong>Email:</strong> <%= current_user.email %></p>
-      <p><strong>Phone:</strong>+123456789</p>
     </div>
     <button class="button-green">
       <a href="<%= new_island_path %>">Upload My Island</a>
@@ -54,8 +53,13 @@
                   <p>Number of Guests: <%= booking.number_of_guests %></p>
                   <p>Your island getaway at: <%= booking.island.name %>, <%= booking.island.location %> (<%= booking.number_of_guests %> guests)</p>
                   <p>Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
-                  <p>Booking status: <%= booking.status == "true" ? "Confirmed" : "Pending" %></p>
-                  <p>Total Price: $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day)</p>
+                  <% if booking.status == true %>
+                  <p><strong>Booking status: Confirmed</strong></p>
+                  <% elsif booking.status == false %>
+                    <p><strong>Booking status: Declined</strong></p>
+                  <% else %>
+                    <p><strong>Booking status: Pending</strong></p>
+                  <% end %>                  <p>Total Price: $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day)</p>
                   <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-btn' %>
                 </div>
               <% end %>
