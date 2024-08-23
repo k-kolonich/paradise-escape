@@ -58,6 +58,7 @@ button {
   align-items: flex-start;
   padding: 15px;
   box-sizing: border-box;
+
 }
 
 .card-item h3 {
@@ -72,7 +73,7 @@ button {
   font-size: 0.9em;
   color: rgb(49, 48, 48);
   margin: 5px 0;
-  text-align: center;
+  text-align: left;
 }
 
 .card-item img {
@@ -80,4 +81,8 @@ button {
   height: 150px;
   width: 150px;
   object-fit: cover;
+}
+
+.bold {
+  font-weight: bold;
 }
