@@ -25,7 +25,13 @@
             <% @islands.each do |island| %>
               <div class="card-item">
                 <a href="<%= island_path(island) %>" class="card-link">
+
+                <% if island.photo.attached? %>
+                  <%= cl_image_tag island.photo.key %>
+                <% else %>
                   <img src="<%= island.image %>" alt="<%= island.name %>">
+                <% end %>
+
                   <h3><%= island.name %></h3>
                   <p><i class="fa-solid fa-location-dot"></i> <%= island.location %></p>
                 </a>
