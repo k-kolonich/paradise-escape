@@ -3,10 +3,8 @@
   <div class="dashboard-user-info">
     <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/no-profile-picture-icon.png" alt="User Avatar" class="user-avatar">
     <div>
-      <h2>Name</h2>
-      <h2>Surname</h2>
-      <p><strong>Email:</strong> name.surname@gmail.com</p>
-      <p><strong>Phone:</strong>+123456789</p>
+      <h2>Welcome <%= current_user.name %>!</h2>
+      <p><strong>Email:</strong> <%= current_user.email %></p>
     </div>
     <button class="button-green">
       <a href="<%= new_island_path %>">Upload My Island</a>
@@ -25,9 +23,15 @@
           <button id="prev-btn" class="prev-btn">&#9664;</button>
           <div id="item-list" class="item-list">
             <% @islands.each do |island| %>
-              <div class="card-item">
+              <div class="card-item-island">
                 <a href="<%= island_path(island) %>" class="card-link">
+
+                <% if island.photo.attached? %>
+                  <%= cl_image_tag island.photo.key %>
+                <% else %>
                   <img src="<%= island.image %>" alt="<%= island.name %>">
+                <% end %>
+
                   <h3><%= island.name %></h3>
                   <p><i class="fa-solid fa-location-dot"></i> <%= island.location %></p>
                 </a>
@@ -51,12 +55,20 @@
               <% @user_bookings.each do |booking| %>
                 <div class="card-item">
                   <h3>Booking ID: <%= booking.id %></h3>
-                  <p>Island ID: <%= booking.island_id %></p>
-                  <p>Number of Guests: <%= booking.number_of_guests %></p>
-                  <p>Your island getaway at: <%= booking.island.name %>, <%= booking.island.location %> (<%= booking.number_of_guests %> guests)</p>
-                  <p>Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
-                  <p>Booking status: <%= booking.status == "true" ? "Confirmed" : "Pending" %></p>
-                  <p>Total Price: $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day)</p>
+                  <p><span class = bold>Island ID:</span> <%= booking.island_id %></p>
+                  <p><span class = bold>Number of Guests:</span> <%= booking.number_of_guests %></p>
+                  <p><span class = bold>Your island getaway at:</span> <%= booking.island.name %>, <%= booking.island.location %> (<%= booking.number_of_guests %> guests)</p>
+                  <p><span class = bold>Booking dates:</span> <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
+                   
+                  <% if booking.status == true %>
+                      <p><span class = bold>Booking status:</span> Confirmed</p>
+                    <% elsif booking.status == false %>
+                      <p><span class = bold>Booking status:</span> Declined</p>
+                    <% else %>
+                     <p><span class = bold>Booking status:</span> Pending</p>
+                  <% end %> 
+            
+                  <p><span class = bold>Total Price:</span> $<%= (booking.end_date - booking.start_date).to_i * booking.island.price %> ($<%= booking.island.price %>/day)</p>
                   <%= link_to "Delete", booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'delete-btn' %>
                 </div>
               <% end %>
@@ -69,11 +81,9 @@
       </div>
     </div>
 
-    <%#  CAROUSEL - BOOKINGS FOR MY ISLAND %>
-
     <div class="dashboard-card">
       <h2>Bookings for My Islands</h2>
-      <%# CAROUSEL %>
+      <%# CAROUSEL - BOOKINGS FOR MY ISLANDS %>
       <div class="carousel-container">
         <div class="carousel-view">
           <button id="prev-btn" class="prev-btn">&#9664;</button>
@@ -81,14 +91,24 @@
             <% unless @bookings.empty? %>
               <% @bookings.each do |booking| %>
                 <div class="card-item">
-                  <h3>Booking ID: <%= booking.id %></h3>
-                  <p>Island ID: <%= booking.island_id %></p>
-                  <p>Booking Status: <%= booking.status %></p>
-                  <p>Number of Guests: <%= booking.number_of_guests %></p>
+
+                  <h3>Booking: #<%= booking.id %></h3>
+                  <p><%= booking.island.name %></p>
+                  <p><%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
+                  <p><span class = bold>Number of Guests:</span> <%= booking.number_of_guests %></p>
+                 <% if booking.status == true %>
+                  <p><span class = bold>Booking Status:</span> Confirmed</p>
+                  <% elsif booking.status == false %>
+                    <p>Booking status: Declined</p>
+                  <% else %>
+                    <p>Booking status: Pending</p>
+                 <% end %>
+                  
                   <div class="booking-actions">
-                    <%= link_to "Accept", booking_path(booking, status: true), data: { turbo_method: :patch }, class: "accept-link" %>
+                    <%= link_to "Accept", booking_path(booking, status: true), data: { turbo_method: :patch }, class: "accept-link" %> |
                     <%= link_to "Decline", booking_path(booking, status: false), data: { turbo_method: :patch }, class: "decline-link" %>
                   </div>
+
                 </div>
               <% end %>
             <% else %>

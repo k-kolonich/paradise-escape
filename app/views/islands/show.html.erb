@@ -24,7 +24,11 @@
       </div>
     </div>
       <div class="show-image">
-        <img src="<%= @island.image %>" alt="<%= @island.name %>">
+       <% if @island.photo.attached? %>
+          <%= cl_image_tag @island.photo.key %>
+        <% else %>
+          <img src="<%= @island.image %>" alt="<%= @island.name %>">
+      <% end %>
       </div>
     </div>
 
