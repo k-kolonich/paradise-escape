@@ -13,5 +13,7 @@ class PagesController < ApplicationController
     @bookings = Booking.joins(:island).where("islands.user_id = ?", @user)
   end
 
+  def about
+  end
 
 end
