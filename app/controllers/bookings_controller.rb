@@ -23,6 +23,7 @@ class BookingsController < ApplicationController
     elsif params[:status] == "false"
       @booking.update(status: false)
     end
+    redirect_to dashboard_path
   end
 
   def destroy
