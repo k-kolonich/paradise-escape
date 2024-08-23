@@ -22,8 +22,8 @@
       <%# CAROUSEL - MY ISLANDS %>
       <div class="carousel-container">
         <div class="carousel-view">
-          <button id="prev-btn" class="prev-btn">&#9664;</button>
-          <div id="item-list" class="item-list">
+          <button id="prev-btn-islands" class="prev-btn">&#9664;</button>
+          <div id="item-list-islands" class="item-list">
             <% @islands.each do |island| %>
               <div class="card-item">
                 <a href="<%= island_path(island) %>" class="card-link">
@@ -34,7 +34,7 @@
               </div>
             <% end %>
           </div>
-          <button id="next-btn" class="next-btn">&#9654;</button>
+          <button id="next-btn-islands" class="next-btn">&#9654;</button>
         </div>
       </div>
     </div>
@@ -45,8 +45,8 @@
       <%# CAROUSEL - MY BOOKINGS %>
       <div class="carousel-container">
         <div class="carousel-view">
-          <button id="prev-btn" class="prev-btn">&#9664;</button>
-          <div id="item-list" class="item-list">
+          <button id="prev-btn-bookings" class="prev-btn">&#9664;</button>
+          <div id="item-list-bookings" class="item-list">
             <% unless @user_bookings.empty? %>
               <% @user_bookings.each do |booking| %>
                 <div class="card-item">
@@ -64,7 +64,7 @@
               <p>No bookings yet.</p>
             <% end %>
           </div>
-          <button id="next-btn" class="next-btn">&#9654;</button>
+          <button id="next-btn-bookings" class="next-btn">&#9654;</button>
         </div>
       </div>
     </div>
@@ -76,8 +76,8 @@
       <%# CAROUSEL %>
       <div class="carousel-container">
         <div class="carousel-view">
-          <button id="prev-btn" class="prev-btn">&#9664;</button>
-          <div id="item-list" class="item-list">
+          <button id="prev-btn-island-bookings" class="prev-btn">&#9664;</button>
+          <div id="item-list-island-bookings" class="item-list">
             <% unless @bookings.empty? %>
               <% @bookings.each do |booking| %>
                 <div class="card-item">
@@ -95,7 +95,7 @@
               <p>No bookings yet.</p>
             <% end %>
           </div>
-          <button id="next-btn" class="next-btn">&#9654;</button>
+          <button id="next-btn-island-bookings" class="next-btn">&#9654;</button>
         </div>
       </div>
     </div>
