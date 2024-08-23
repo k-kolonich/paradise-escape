@@ -1,7 +1,7 @@
 <div class="dashboard-container">
 
   <div class="dashboard-user-info">
-    <img src="https://kitt.lewagon.com/placeholder/users/arthur-littm" alt="User Avatar" class="user-avatar">
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/no-profile-picture-icon.png" alt="User Avatar" class="user-avatar">
     <div>
       <h2>Name</h2>
       <h2>Surname</h2>
@@ -27,7 +27,7 @@
             <% @islands.each do |island| %>
               <div class="card-item">
                 <a href="<%= island_path(island) %>" class="card-link">
-                  <img src="https://images.pexels.com/photos/6762488/pexels-photo-6762488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Exotic Island" id="carousel-img">
+                  <img src="<%= island.image %>" alt="<%= island.name %>">
                   <h3><%= island.name %></h3>
                   <p><i class="fa-solid fa-location-dot"></i> <%= island.location %></p>
                 </a>
