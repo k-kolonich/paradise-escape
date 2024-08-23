@@ -19,7 +19,7 @@
     <div class="dashboard-card">
       <h2>My Islands</h2>
 
-      <%# CAROUSEL %>
+      <%# CAROUSEL - MY ISLANDS %>
       <div class="carousel-container">
         <div class="carousel-view">
           <button id="prev-btn" class="prev-btn">&#9664;</button>
@@ -29,6 +29,7 @@
                 <a href="<%= island_path(island) %>" class="card-link">
                   <img src="https://images.pexels.com/photos/6762488/pexels-photo-6762488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Exotic Island" id="carousel-img">
                   <h3><%= island.name %></h3>
+                  <p><i class="fa-solid fa-location-dot"></i> <%= island.location %></p>
                 </a>
               </div>
             <% end %>
@@ -41,7 +42,7 @@
     <div class="dashboard-card">
       <h2>My Bookings</h2>
 
-      <%# CAROUSEL %>
+      <%# CAROUSEL - MY BOOKINGS %>
       <div class="carousel-container">
         <div class="carousel-view">
           <button id="prev-btn" class="prev-btn">&#9664;</button>
@@ -68,6 +69,8 @@
         </div>
       </div>
     </div>
+
+    <%#  CAROUSEL - BOOKINGS FOR MY ISLAND %>
 
     <div class="dashboard-card">
       <h2>Bookings for My Islands</h2>
