@@ -2,21 +2,20 @@
     <div class="show-text">
       <div>
         <p id="showpage-slogan">DISCOVER YOUR PARADISE</p>
-        <h1>Exclusive island rentals await</h1>
+        <h1><em>Exclusive island rentals await!</em></h1>
       </div>
       <div>
         <h2><%= @island.name %></h2>
-        <p><%= @island.location %></p>
-        <p>$<%= @island.price %> per day</p>
+        <p><i class="fa-solid fa-location-dot"></i> <strong><%= @island.location %></strong> | $<%= @island.price %> per day</p>
         <p><%= @island.description %></p>
       </div>
 
 
-      <div>
+      <div class="edit-delete-links">
       <% if current_user.id == @island.user_id%>
         <%= link_to "Edit",
           edit_island_path(@island)
-        %>
+        %> |
         <%= link_to "Delete",
           island_path(@island),
           data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
