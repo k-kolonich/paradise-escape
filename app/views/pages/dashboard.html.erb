@@ -3,9 +3,8 @@
   <div class="dashboard-user-info">
     <img src="https://kitt.lewagon.com/placeholder/users/arthur-littm" alt="User Avatar" class="user-avatar">
     <div>
-      <h2>Name</h2>
-      <h2>Surname</h2>
-      <p><strong>Email:</strong> name.surname@gmail.com</p>
+      <h2>Welcome <%= current_user.email %>!</h2>
+      <p><strong>Email:</strong> <%= current_user.email %></p>
       <p><strong>Phone:</strong>+123456789</p>
     </div>
     <button class="button-green">
@@ -70,11 +69,9 @@
       </div>
     </div>
 
-    <%#  CAROUSEL - BOOKINGS FOR MY ISLAND %>
-
     <div class="dashboard-card">
       <h2>Bookings for My Islands</h2>
-      <%# CAROUSEL %>
+      <%# CAROUSEL - BOOKINGS FOR MY ISLANDS %>
       <div class="carousel-container">
         <div class="carousel-view">
           <button id="prev-btn" class="prev-btn">&#9664;</button>
@@ -82,14 +79,22 @@
             <% unless @bookings.empty? %>
               <% @bookings.each do |booking| %>
                 <div class="card-item">
-                  <h3>Booking ID: <%= booking.id %></h3>
-                  <p>Island ID: <%= booking.island_id %></p>
-                  <p>Booking Status: <%= booking.status %></p>
+                  <h3>Booking: #<%= booking.id %></h3>
+                  <p><%= booking.island.name %></p>
+                  <p><%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
                   <p>Number of Guests: <%= booking.number_of_guests %></p>
+                 <% if booking.status == true %>
+                  <p><strong>Booking status: Confirmed</strong></p>
+                  <% elsif booking.status == false %>
+                    <p><strong>Booking status: Declined</strong></p>
+                  <% else %>
+                    <p><strong>Booking status: Pending</strong></p>
+                 <% end %>
                   <div class="booking-actions">
-                    <%= link_to "Accept", booking_path(booking, status: true), data: { turbo_method: :patch }, class: "accept-link" %>
+                    <%= link_to "Accept", booking_path(booking, status: true), data: { turbo_method: :patch }, class: "accept-link" %> |
                     <%= link_to "Decline", booking_path(booking, status: false), data: { turbo_method: :patch }, class: "decline-link" %>
                   </div>
+
                 </div>
               <% end %>
             <% else %>
