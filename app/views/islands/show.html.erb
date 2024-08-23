@@ -23,10 +23,10 @@
       <% end %>
       </div>
     </div>
-    <div class="show-image">
-      <img src="https://images.pexels.com/photos/11967513/pexels-photo-11967513.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+      <div class="show-image">
+        <img src="<%= @island.image %>" alt="<%= @island.name %>">
+      </div>
     </div>
-</div>
 
 <div class="form-container">
  <% unless current_user.id == @island.user_id%>
