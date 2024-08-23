@@ -51,7 +51,6 @@
                 <div class="card-item">
                   <h3>Booking ID: <%= booking.id %></h3>
                   <p>Island ID: <%= booking.island_id %></p>
-                  <p>Booking Status: <%= booking.status %></p>
                   <p>Number of Guests: <%= booking.number_of_guests %></p>
                   <p>Your island getaway at: <%= booking.island.name %>, <%= booking.island.location %> (<%= booking.number_of_guests %> guests)</p>
                   <p>Booking dates: <%= booking.start_date%>-<%= booking.end_date %> (<%= (booking.end_date - booking.start_date).to_i %> days)</p>
