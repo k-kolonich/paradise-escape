@@ -5,9 +5,8 @@
           <div class="card">
             <img src="https://images.pexels.com/photos/1013433/pexels-photo-1013433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Exotic Island">
             <h2><%= island.name %></h2>
+            <p><i class="fa-solid fa-location-dot"></i> <strong><%= island.location %></strong> | <em>$<%= island.price %>/day</em></p>
             <p><%= island.description %></p>
-            <p><%= island.location %> <i class="fa-solid fa-location-dot"></i> </p>
-            <p><%= island.price %>$</p>
           </div>
         </a>
     <% end %>
